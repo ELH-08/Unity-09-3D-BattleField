@@ -31,6 +31,9 @@ public class SkeletonCtrl : MonoBehaviour
 
     void Update() //실시간
     {
+        if (SkeletonDamage.isDie ) return;  //(SkeletonDamage 스크립트) 해골이 사망 확정이면 ==true안해도 그 자체가  true, 하위 로직으로 안 내려가고 업데이트를 빠져나감.
+
+
         float ditancePandS = Vector3.Distance(playerTransform.position, skeletonTransform.position);        //플레이어와 해골의 거리 (플레이어 위치, 해골 위치 -> 순서 바뀌어도 상관없음)
 
         if (ditancePandS <= attackDistance)                       //공격 범위 안이면
